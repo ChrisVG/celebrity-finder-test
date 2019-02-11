@@ -2,7 +2,7 @@
 
 Celebrity Finder is an application to solve Find the Celebrity problem using Spring boot.
 
-For this solution use the JSON format to pass the information to the application.
+For this solution JSON format is used to pass the information to the application.
 
 Description: In a team of n people, a celebrity is known by everyone but he/she doesn't know anybody.
 
