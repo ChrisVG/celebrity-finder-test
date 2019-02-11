@@ -31,26 +31,22 @@ public class CelebrityServiceImpl implements CelebrityService {
         if (people.size() < 2)
             throw new Exception("Party must have more than one person");
         Stack<Person> possibleCelebrities = new Stack<>();
-        // Step 1 :Push everybody onto stack
+        // Step 1 :Push all party members  onto stack
         people.forEach(person -> possibleCelebrities.push(person));
         while (possibleCelebrities.size() > 1) {
-            // Step 2 :Pop off top two persons from the
-            // stack, discard one person based on return
-            // status of knows(A, B).
+            // Step 2 :Pop the top two elements from the
+            // stack, discard one person based on haveAcquaintance(person1, person2).
             Person personOne = possibleCelebrities.pop();
             Person personTwo = possibleCelebrities.pop();
-            // Step 3 : Push the remained person onto stack.
+            // Step 3 : return the remained person to the stack.
             if (haveAcquaintance(personOne, personTwo))
                 possibleCelebrities.push(personTwo);
             else
                 possibleCelebrities.push(personOne);
         }
         Person lastPerson = possibleCelebrities.pop();
-        // Step 5 : Check if the last person is
-        // celebrity or not
+        // Step 5 : Check if the last person is celebrity or not
         for (Person person : people) {
-            // If any person doesn't know 'c' or 'a'
-            // doesn't know any person, return -1
             if (!lastPerson.equals(person) && (haveAcquaintance(lastPerson, person) || !haveAcquaintance(person, lastPerson)))
                 throw new Exception("Celebrity is not present");
         }
