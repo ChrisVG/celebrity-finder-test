@@ -1,0 +1,54 @@
+[{
+    "id": "1",
+    "firstName": "Christian",
+    "knownPeople": [],
+    "lastName": "Valencia"
+  },
+  {
+    "id": 2,
+    "firstName": "Katherine",
+    "knownPeople": [{
+      "id": "1",
+      "firstName": "Christian",
+      "knownPeople": [],
+      "lastName": "Valencia"
+    }],
+    "lastName": "Fuentes"
+  },
+  {
+    "id": 3,
+    "firstName": "John",
+    "knownPeople": [{
+        "id": "1",
+        "firstName": "Christian",
+        "knownPeople": [],
+        "lastName": "Valencia"
+      },
+      {
+        "id": 2,
+        "firstName": "Katherine",
+        "knownPeople": [],
+        "lastName": "Fuentes"
+      }
+    ],
+    "lastName": "Doe"
+  },
+  {
+    "id": 4,
+    "firstName": "Merry",
+    "knownPeople": [{
+        "id": "1",
+        "firstName": "Christian",
+        "knownPeople": [],
+        "lastName": "Valencia"
+      },
+      {
+        "id": 3,
+        "firstName": "John",
+        "knownPeople": [],
+        "lastName": "Doe"
+      }
+    ],
+    "lastName": "Christmas"
+  }
+]

@@ -10,17 +10,17 @@ import java.util.Set;
  * @since 11/02/2019
  */
 public class Person {
-    private String id;
+    private Integer id;
     private String firstName;
     private String lastName;
 
     private Set<Person> knownPeople;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -53,14 +53,24 @@ public class Person {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
-        return Objects.equals(id, person.id) &&
+        return Objects.equals(id, person.id) || (
                 Objects.equals(firstName, person.firstName) &&
-                Objects.equals(lastName, person.lastName);
+                        Objects.equals(lastName, person.lastName));
     }
 
     @Override
     public int hashCode() {
 
         return Objects.hash(id, firstName, lastName);
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", knownPeople=" + knownPeople +
+                '}';
     }
 }

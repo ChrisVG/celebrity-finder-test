@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * CelebrityController
@@ -25,14 +26,15 @@ public class CelebrityController {
     @Autowired
     private CelebrityService celebrityService;
 
-    /**
-     * @param partyMembers
-     * @return
+    /** get a celebrity based on a N number of people
+     *
+     * @param partyMembers team of N people
+     * @return response entity with a response
      */
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
     @CrossOrigin
-    public ResponseEntity<?> getRandomMessage(@RequestBody List<Person> partyMembers) {
+    public ResponseEntity<?> finCelebrity(@RequestBody Set<Person> partyMembers) {
         try {
             return ResponseEntity.ok(celebrityService.findCelebrity(partyMembers));
         } catch (Exception e) {

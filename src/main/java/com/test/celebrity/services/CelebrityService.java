@@ -13,5 +13,11 @@ import java.util.Set;
  */
 public interface CelebrityService {
 
-    public Person findCelebrity(List<Person> people) throws Exception;
+    /** get a celebrity <p>(Person)</p> based on a N number of people
+     *
+     * @param people
+     * @return
+     * @throws Exception
+     */
+    public Person findCelebrity(Set<Person> people) throws Exception;
 }

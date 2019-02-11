@@ -15,7 +15,7 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 group = 'com.test.celebrity'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 sourceCompatibility = '1.8'
 
 repositories {
@@ -23,10 +23,11 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-starter-actuator')
 	compile('io.springfox:springfox-swagger2:2.8.0')
 	compile ('io.springfox:springfox-swagger-ui:2.8.0')
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	//test dependencies
+	testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+
 }
