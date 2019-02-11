@@ -5,7 +5,6 @@ Celebrity Finder is an application to solve Find the Celebrity problem using Spr
 For this solution is used the JSON format to pass the information to the application.
 
 Description: In a team of n people, a celebrity is known by everyone but he/she doesn't know anybody.
-## Run UnitTest
 
 ## Assumptions
 
@@ -14,6 +13,7 @@ Description: In a team of n people, a celebrity is known by everyone but he/she 
 * Party have contain more than one person
 * A person could know other people
 
+## Run UnitTest
 ```bash
 gradlew test
 ```
