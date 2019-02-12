@@ -21,18 +21,19 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @ComponentScan(basePackages = {"com.test.celebrity"})
 public class CelebrityFinderTestApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(CelebrityFinderTestApplication.class, args);
-	}
-	@Bean
-	public Docket api() {
-		return new Docket(DocumentationType.SWAGGER_2)
-				.select()
-				.apis(RequestHandlerSelectors.any())
-				.paths(PathSelectors.any())
-				.build();
+    public static void main(String[] args) {
+        SpringApplication.run(CelebrityFinderTestApplication.class, args);
+    }
 
-	}
+    @Bean
+    public Docket api() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .select()
+                .apis(RequestHandlerSelectors.any())
+                .paths(PathSelectors.any())
+                .build();
+
+    }
 
 }
 

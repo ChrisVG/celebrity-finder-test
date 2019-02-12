@@ -1,12 +1,13 @@
 package com.test.celebrity.services.impl;
 
+import com.test.celebrity.exception.CelebrityFinderException;
 import com.test.celebrity.model.Person;
 import com.test.celebrity.services.CelebrityService;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Set;
-import java.util.Stack;
 
 /**
  * CelebrityServiceImpl
@@ -24,13 +25,13 @@ public class CelebrityServiceImpl implements CelebrityService {
      *
      * @param people
      * @return
-     * @throws Exception
+     * @throws CelebrityFinderException
      */
     @Override
-    public Person findCelebrity(Set<Person> people) throws Exception {
+    public Person findCelebrity(Set<Person> people) throws CelebrityFinderException {
         if (people.size() < 2)
-            throw new Exception("Party must have more than one person");
-        Stack<Person> possibleCelebrities = new Stack<>();
+            throw new CelebrityFinderException("Party must have more than one person");
+        Deque<Person> possibleCelebrities = new ArrayDeque<>();
         // Step 1 :Push all party members  onto stack
         people.forEach(person -> possibleCelebrities.push(person));
         while (possibleCelebrities.size() > 1) {
@@ -48,7 +49,7 @@ public class CelebrityServiceImpl implements CelebrityService {
         // Step 5 : Check if the last person is celebrity or not
         for (Person person : people) {
             if (!lastPerson.equals(person) && (haveAcquaintance(lastPerson, person) || !haveAcquaintance(person, lastPerson)))
-                throw new Exception("Celebrity is not present");
+                throw new CelebrityFinderException("Celebrity is not present");
         }
         return lastPerson;
     }

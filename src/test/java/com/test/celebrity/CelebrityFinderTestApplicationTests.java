@@ -2,7 +2,6 @@ package com.test.celebrity;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.test.celebrity.app.CelebrityFinderTestApplication;
-import com.test.celebrity.controller.CelebrityController;
 import com.test.celebrity.model.Person;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
@@ -22,10 +21,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import static org.hamcrest.Matchers.is;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = CelebrityFinderTestApplication.class)

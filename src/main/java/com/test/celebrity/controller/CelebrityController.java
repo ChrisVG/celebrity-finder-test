@@ -1,5 +1,6 @@
 package com.test.celebrity.controller;
 
+import com.test.celebrity.exception.CelebrityFinderException;
 import com.test.celebrity.model.Person;
 import com.test.celebrity.services.CelebrityService;
 import org.slf4j.Logger;
@@ -9,7 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -26,18 +26,19 @@ public class CelebrityController {
     @Autowired
     private CelebrityService celebrityService;
 
-    /** get a celebrity based on a N number of people
+    /**
+     * get a celebrity based on a N number of people
      *
      * @param partyMembers team of N people
      * @return response entity with a response
      */
-    @RequestMapping(method = RequestMethod.POST)
+    @PostMapping
     @ResponseBody
     @CrossOrigin
     public ResponseEntity<?> finCelebrity(@RequestBody Set<Person> partyMembers) {
         try {
             return ResponseEntity.ok(celebrityService.findCelebrity(partyMembers));
-        } catch (Exception e) {
+        } catch (CelebrityFinderException e) {
             LOGGER.error(e.getLocalizedMessage());
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getLocalizedMessage());
         }

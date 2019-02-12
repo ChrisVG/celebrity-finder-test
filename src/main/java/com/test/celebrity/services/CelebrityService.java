@@ -1,8 +1,8 @@
 package com.test.celebrity.services;
 
+import com.test.celebrity.exception.CelebrityFinderException;
 import com.test.celebrity.model.Person;
 
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -19,5 +19,5 @@ public interface CelebrityService {
      * @return
      * @throws Exception
      */
-    public Person findCelebrity(Set<Person> people) throws Exception;
+    public Person findCelebrity(Set<Person> people) throws CelebrityFinderException;
 }
